@@ -1,0 +1,2 @@
+CLEARSCREEN.
+PRINT "Hello".
