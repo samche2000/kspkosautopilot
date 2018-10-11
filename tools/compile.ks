@@ -1,3 +1,5 @@
+@LAZYGLOBAL OFF.
+
 CLEARSCREEN.
 SWITCH TO ARCHIVE.
 
@@ -6,7 +8,18 @@ PRINT "Debut de la compilation".
 PRINT "=======================".
 PRINT " ".
 
-COMPILE "ARCHIVE:/src/setup.ks" TO "ARCHIVE:/bin/setup.ksm".
+// Supprimer le dossier bin et le recréer
+
+DELETEPATH("0:/bin").
+CREATEDIR("0:/bin").
+
+CD("0:/src").
+
+LIST FILES IN srcFiles.
+FOR ksfile IN srcFiles {
+    PRINT "Compilation du fichier : " + ksfile.
+    COMPILE "ARCHIVE:/src/" + ksfile TO "ARCHIVE:/bin/" + ksfile + "m".
+}
 
 CD("0:/tools").
 
