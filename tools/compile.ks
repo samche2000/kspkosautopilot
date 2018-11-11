@@ -22,7 +22,6 @@ PRINT " ".
 //CD("0:/kunit-src/class").
 
 //LIST FILES IN srcFiles.
-//LIST FILES IN srcFiles.
 //FOR ksfile IN srcFiles {
 //    PRINT "Compilation du fichier : " + ksfile.
 //    COMPILE "ARCHIVE:/kunit-src/class/" + ksfile TO "ARCHIVE:/kunit/class/" + ksfile + "m".

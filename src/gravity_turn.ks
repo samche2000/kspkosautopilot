@@ -8,8 +8,8 @@ function gravity_turn {
     LOCK STEERING TO HEAD.
 
     RCS OFF.
-    SET SASMODE ON "STABILITYASSIST".
-    SAS ON.
+    SAS OFF.
+    //SET SASMODE ON "STABILITYASSIST".
 
     UNTIL SHIP:APOAPSIS > mAlt {
 
