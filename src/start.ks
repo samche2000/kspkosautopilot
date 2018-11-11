@@ -1,4 +1,5 @@
 RUNONCEPATH("libs/draw_menu").
+RUNONCEPATH("maneuvers/launch").
 RUNONCEPATH("missions/001").
 
 DRAW_MENU().
@@ -13,7 +14,9 @@ UNTIL done {
         FOR step IN mission {
             IF step:TYPENAME = "lexicon" {
                 IF step["id"] = ch {
-                    RUN "maneuvers/launch".
+                    launch(step["maneuvers"][0]).
+                    gravity_turn(step["maneuvers"][1]).
+                    circularization(step["maneuvers"][2]).
                 }.
             }.
         }.

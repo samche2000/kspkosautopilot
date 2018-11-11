@@ -1,5 +1,13 @@
 function gravity_turn {
-    PARAMETER mAlt.
+    PARAMETER maneuver.
+
+    WHEN MAXTHRUST = 0 THEN {
+	    STAGE.
+	    WAIT 3.
+	    PRESERVE.
+	}.
+
+    SET TARGET_AP TO maneuver["constants"]["targetAltitude"].
 
     SET thr TO 1.0.
     LOCK THROTTLE TO thr.
@@ -10,10 +18,10 @@ function gravity_turn {
     RCS OFF.
     SAS OFF.
 
-    UNTIL SHIP:APOAPSIS > mAlt {
+    UNTIL SHIP:APOAPSIS > TARGET_AP {
 
         SET TotalThrust TO 0.
-        SET Pitch TO 90 - (SHIP:APOAPSIS / mAlt * 90).
+        SET Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
         SET HEAD TO (HEADING(90,Pitch)).
 
         LIST ENGINES IN engList.
