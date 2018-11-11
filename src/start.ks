@@ -1,5 +1,7 @@
 RUNONCEPATH("libs/draw_menu").
 RUNONCEPATH("maneuvers/launch").
+RUNONCEPATH("maneuvers/gravity_turn").
+RUNONCEPATH("maneuvers/circularization").
 RUNONCEPATH("missions/001").
 
 DRAW_MENU().

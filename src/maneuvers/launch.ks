@@ -1,7 +1,6 @@
 RUNONCEPATH("libs/create_node_at_altitude").
 RUNONCEPATH("libs/exec_node").
 RUNONCEPATH("libs/draw_menu").
-RUNONCEPATH("maneuvers/gravity_turn").
 RUNONCEPATH("missions/001").
 
 function launch {
