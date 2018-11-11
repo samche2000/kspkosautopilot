@@ -9,7 +9,6 @@ function gravity_turn {
 
     RCS OFF.
     SAS OFF.
-    //SET SASMODE ON "STABILITYASSIST".
 
     UNTIL SHIP:APOAPSIS > mAlt {
 

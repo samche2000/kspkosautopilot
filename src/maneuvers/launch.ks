@@ -1,9 +1,9 @@
-CLEARSCREEN.
-
 RUNONCEPATH("libs/create_node_at_altitude").
 RUNONCEPATH("libs/exec_node").
-RUNONCEPATH("gravity_turn").
+RUNONCEPATH("maneuvers/gravity_turn").
 RUNONCEPATH("missions/001").
+
+DRAW_MENU().
 
 // Orbital wishlist
 SET TARGET_AP TO mission[0]["maneuver"]["constants"]["targetAltitude"].
@@ -24,8 +24,6 @@ FOR ENG IN ENGLIST {
 		}.
 	}.
 }.
-
-CLEARSCREEN.
 
 SET thr TO 1.0.
 LOCK THROTTLE TO thr.
