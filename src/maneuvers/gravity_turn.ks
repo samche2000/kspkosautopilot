@@ -7,9 +7,9 @@ function gravity_turn {
 	    PRESERVE.
 	}.
 
-    LOCAL SET TARGET_AP TO maneuver["constants"]["targetAltitude"].
+    LOCAL TARGET_AP TO maneuver["constants"]["targetAltitude"].
 
-    LOCAL SET thr TO 1.0.
+    LOCAL thr TO 1.0.
     LOCK THROTTLE TO thr.
 
     SET HEAD TO HEADING(90,90).
@@ -20,12 +20,12 @@ function gravity_turn {
 
     UNTIL SHIP:APOAPSIS > TARGET_AP {
 
-        LOCAL SET Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
-        SET HEAD TO (HEADING(90,Pitch)).
+        LOCAL Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
+        SET HEAD TO HEADING(90,Pitch).
 
-        SET TWR TO currentTWR().
+        LOCAL twr TO currenttwr().
 
-        SET Speed TO SHIP:VELOCITY:SURFACE:MAG.
+        LOCAL Speed TO SHIP:VELOCITY:SURFACE:MAG.
 
         IF SHIP:ALTITUDE < 500 {
             WAIT 1.
@@ -33,10 +33,10 @@ function gravity_turn {
             IF SHIP:AIRSPEED > 500 {
                 SET thr TO thr - 0.01.
             } ELSE {
-                IF TWR > 1.8 AND THROTTLE > 0.1 {
+                IF twr > 1.8 AND THROTTLE > 0.1 {
                     SET thr TO thr - 0.01.
                 }
-                IF TWR < 1.4 AND THROTTLE < 1 {
+                IF twr < 1.4 AND THROTTLE < 1 {
                     SET thr TO thr + 0.01.
                 }
             }
@@ -44,10 +44,10 @@ function gravity_turn {
             IF SHIP:AIRSPEED > 700 {
                 SET thr TO thr - 0.01.
             } ELSE {
-                IF TWR > 2.2 AND THROTTLE > 0.1 {
+                IF twr > 2.2 AND THROTTLE > 0.1 {
                     SET thr TO thr - 0.01.
                 }
-                IF TWR < 1.6 AND THROTTLE < 1 {
+                IF twr < 1.6 AND THROTTLE < 1 {
                     SET thr TO thr + 0.01.
                 }
             }
@@ -55,10 +55,10 @@ function gravity_turn {
             IF SHIP:AIRSPEED > 1000 {
                 SET thr TO thr - 0.01.
             } ELSE {
-                IF TWR > 2.8 AND THROTTLE > 0.1 {
+                IF twr > 2.8 AND THROTTLE > 0.1 {
                     SET thr TO thr - 0.01.
                 }
-                IF TWR < 2 AND THROTTLE < 1 {
+                IF twr < 2 AND THROTTLE < 1 {
                     SET thr TO thr + 0.01.
                 }
             }
@@ -66,10 +66,10 @@ function gravity_turn {
             IF SHIP:AIRSPEED > 1200 {
                 SET thr TO thr - 0.01.
             } ELSE {
-                IF TWR > 2.8 AND THROTTLE > 0.1 {
+                IF twr > 2.8 AND THROTTLE > 0.1 {
                     SET thr TO thr - 0.01.
                 }
-                IF TWR < 2 AND THROTTLE < 1 {
+                IF twr < 2 AND THROTTLE < 1 {
                     SET thr TO thr + 0.01.
                 }
             }

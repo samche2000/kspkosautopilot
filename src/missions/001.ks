@@ -51,7 +51,7 @@ set mission to list().
         step:ADD("name", "OrbitalTransfer").
         set maneuvers to list().
             set maneuver to lexicon().
-                maneuver:ADD("name", "burnToApoapsis").
+                maneuver:ADD("name", "OrbitalTransfer").
                 maneuver:ADD("initialStatus", "Orbit Kerbin at 80000 km").
                 maneuver:ADD("finalStatus", "Apoapsis 2863 Km").
                 set constants to lexicon().

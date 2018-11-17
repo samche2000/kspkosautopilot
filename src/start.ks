@@ -2,7 +2,7 @@ RUNONCEPATH("libs/draw_menu").
 RUNONCEPATH("maneuvers/launch").
 RUNONCEPATH("maneuvers/gravity_turn").
 RUNONCEPATH("maneuvers/circularization").
-RUNONCEPATH("maneuvers/burnToApoapsis").
+RUNONCEPATH("maneuvers/OrbitalTransfer").
 RUNONCEPATH("maneuvers/transferInterplanetary").
 RUNONCEPATH("missions/001").
 
@@ -20,10 +20,10 @@ UNTIL done {
             IF (step["id"] = ch:tonumber()) {
                 FOR maneuver IN step["maneuvers"] {
                     PRINT maneuver["name"] AT (80,0).
-                    IF (maneuver["name"] = "burnToApoapsis")  burnToApoapsis(maneuver).
                     IF (maneuver["name"] = "circularization") circularization(maneuver).
                     IF (maneuver["name"] = "gravityTurn")     gravity_turn(maneuver).
                     IF (maneuver["name"] = "launch")          launch().
+                    IF (maneuver["name"] = "OrbitalTransfer") OrbitalTransfer(maneuver).
                     TERMINAL:INPUT:clear().
                 }.
             }.

@@ -36,18 +36,15 @@ function EXEC_NODE {
 
         IF vdot(dv0, nd:deltav) < 0
         {
-            PRINT "End burn, remain dv " + ROUND(nd:deltav:mag, 1) + "m/s, vdot: " + ROUND(vdot(dv0, nd:deltav),1).
             SET thr TO 0.
             BREAK.
         }
 
         IF nd:deltav:mag < 0.1
         {
-            PRINT "Finalizing burn, remain dv " + ROUND(nd:deltav:mag, 1) + "m/s, vdot: " + ROUND(vdot(dv0, nd:deltav),1).
             WAIT UNTIL vdot(dv0, nd:deltav) < 0.5.
 
             SET thr TO 0.
-            PRINT "End burn, remain dv " + ROUND(nd:deltav:mag, 1) + "m/s, vdot: " + ROUND(vdot(dv0, nd:deltav),1).
             SET done TO True.
         }
     }
@@ -55,4 +52,5 @@ function EXEC_NODE {
     UNLOCK steering.
 
     SET thr TO 0.
+    RCS OFF.
 }

@@ -11,8 +11,6 @@ function launch {
 	RCS OFF.
 	SAS OFF.
 
-	DRAW_MENU().
-
 	SET SEP_SOLID TO 25.
 
 	SET SOLID_EMPTY TO 1.
