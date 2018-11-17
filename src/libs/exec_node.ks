@@ -27,7 +27,6 @@ function EXEC_NODE {
 
     SET done TO False.
     SET dv0 TO nd:deltav.
-    print "Debut du burn".
     UNTIL done
     {
         SET np TO nd:deltav.

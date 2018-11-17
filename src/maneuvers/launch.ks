@@ -5,7 +5,6 @@ RUNONCEPATH("libs/vessel").
 RUNONCEPATH("missions/001").
 
 function launch {
-	PARAMETER maneuver.
 
 	SET thr TO 1.0.
 	LOCK THROTTLE TO thr.

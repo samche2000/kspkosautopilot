@@ -7,9 +7,9 @@ function gravity_turn {
 	    PRESERVE.
 	}.
 
-    SET TARGET_AP TO maneuver["constants"]["targetAltitude"].
+    LOCAL SET TARGET_AP TO maneuver["constants"]["targetAltitude"].
 
-    SET thr TO 1.0.
+    LOCAL SET thr TO 1.0.
     LOCK THROTTLE TO thr.
 
     SET HEAD TO HEADING(90,90).
@@ -20,7 +20,7 @@ function gravity_turn {
 
     UNTIL SHIP:APOAPSIS > TARGET_AP {
 
-        SET Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
+        LOCAL SET Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
         SET HEAD TO (HEADING(90,Pitch)).
 
         SET TWR TO currentTWR().

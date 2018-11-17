@@ -1,12 +1,10 @@
 RUNONCEPATH("libs/exec_node").
 
-function circularization {
+function burnToApoapsis {
     PARAMETER maneuver.
 
-    SET TARGET_AP TO SHIP:APOAPSIS.
-
-    LOCAL nd IS CREATE_NODE_AT_ALTITUDE(TARGET_AP).
-
+    SET TARGET_AP TO maneuver["constants"]["targetAltitude"].
+    SET nd TO CREATE_NODE_AT_ALTITUDE(TARGET_AP).
     SET nd TO NEXTNODE.
 
     EXEC_NODE(nd).
