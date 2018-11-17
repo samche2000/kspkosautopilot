@@ -20,18 +20,12 @@ function gravity_turn {
 
     UNTIL SHIP:APOAPSIS > TARGET_AP {
 
-        SET TotalThrust TO 0.
         SET Pitch TO 90 - (SHIP:APOAPSIS / TARGET_AP * 90).
         SET HEAD TO (HEADING(90,Pitch)).
 
-        LIST ENGINES IN engList.
-        FOR eng IN engList {
-            IF eng:IGNITION SET totalThrust TO totalThrust + eng:THRUST.
-        }.
+        SET TWR TO currentTWR().
 
         SET Speed TO SHIP:VELOCITY:SURFACE:MAG.
-        SET Poids TO MASS *  (BODY:mu / (ship:body:position:mag * ship:body:position:mag)).
-        SET TWR TO TotalThrust / poids.
 
         IF SHIP:ALTITUDE < 500 {
             WAIT 1.

@@ -1,6 +1,7 @@
 RUNONCEPATH("libs/create_node_at_altitude").
 RUNONCEPATH("libs/exec_node").
 RUNONCEPATH("libs/draw_menu").
+RUNONCEPATH("libs/vessel").
 RUNONCEPATH("missions/001").
 
 function launch {
@@ -30,13 +31,14 @@ function launch {
 
 	WHEN MAXTHRUST = 0 THEN {
 	    STAGE.
-	    WAIT 3.
+	    WAIT 2.
 	    PRESERVE.
 	}.
 
 	STAGE.
-	WAIT 1.5.
+	WAIT UNTIL (currentTWR() > 1).
 
-	STAGE.
 	WAIT 1.
+	STAGE.
+	WAIT 5.
 }
